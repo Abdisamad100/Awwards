@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -39,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appawward',
     'bootstrap3',
-    'pyuploadcare.dj'
+    'pyuploadcare.dj',
+    'crispy_forms',
+    'cloudinary',
 
 ]
 
@@ -119,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -132,3 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+cloudinary.config(
+  cloud_name = "dlna5jtza",
+  api_key = "283155167487845",
+  api_secret = "YEbLd-4xGunnD0FIEaMjVkY-czU"
+)
+
+LOGIN_REDIRECT_URL = 'home'
