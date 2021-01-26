@@ -9,15 +9,15 @@ from django.contrib.auth.views import LogoutView
 # Create your views here.
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('login')
-    else:
-        form = UserCreationForm()
-    return render(request, 'registration/registration_form.html', locals())
+# def register(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#         return redirect('login')
+#     else:
+#         form = UserCreationForm()
+#     return render(request, 'register.html', locals())
 
 
 @login_required(login_url='/accounts/login')
@@ -75,7 +75,7 @@ def edit_prof(request):
             lol = form.save(commit=False)
             lol.uploaded_by = current_user
             lol.save()
-            return redirect('profile')
+            return redirect('profile.html')
     else:
         form = ProfileForm()
     return render(request, 'profile_edit.html', {'profileform': form})
