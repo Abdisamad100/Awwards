@@ -18,14 +18,14 @@ from django.conf import settings
 # ]
 
 # if settings.DEBUG:
-#     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+#     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIurl(r'^accounts/', include('registration.backends.simple.urls')),A_ROOT)
 
 # if settings.DEBUG:
 #     urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 urlpatterns=[
-    url(r'^register/', views.register, name='register'),
-    url(r'accounts/', include('django.contrib.auth.urls')),
+    # url(r'^register/', views.register, name='register'),
+    # url(r'accounts/', include('django.contrib.auth.urls')),
     url(r'^$',views.home, name='home'),
     url(r'^project/(?P<project_id>[0-9])$',views.project,name ='project'),
     url(r'profile/',views.profile, name='profile'),

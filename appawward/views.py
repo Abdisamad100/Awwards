@@ -20,14 +20,14 @@ def register(request):
     return render(request, 'register.html', locals())
 
 
-@login_required(login_url='/accounts/login')
+
 def home(request):
     current_user = request.user
     all_projects = Projects.objects.all()
     return render(request, 'index.html', locals())
 
 
-@login_required(login_url='/accounts/login')
+
 def project(request, project_id):
     try:
         project = Projects.objects.get(id=project_id)
@@ -36,7 +36,7 @@ def project(request, project_id):
     return render(request, "project.html", locals())
 
 
-@login_required(login_url='/accounts/login')
+
 def profile(request):
     current_user = request.user
     if request.method == 'POST':
@@ -51,7 +51,7 @@ def profile(request):
     return render(request, 'profile.html', locals())
 
 
-@login_required(login_url='/accounts/login')
+
 def upload_form(request):
     current_user = request.user
     if request.method == 'POST':
@@ -66,7 +66,7 @@ def upload_form(request):
     return render(request, 'post.html', {'uploadform': form})
 
 
-@login_required(login_url='/accounts/login')
+
 def edit_prof(request):
     current_user = request.user
     if request.method == 'POST':
@@ -81,7 +81,7 @@ def edit_prof(request):
     return render(request, 'profile_edit.html', {'profileform': form})
 
 
-@login_required(login_url='/accounts/login')
+
 def search(request):
     all_projects = Projects.objects.all()
     parameter = request.GET.get("project")
