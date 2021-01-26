@@ -28,13 +28,16 @@ app_name='ratings'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('appawward.urls')),
-    url(r'^accounts/logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout'),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    # url(r'^accounts/logout/', auth_views.LogoutView, {'next_page': '/'}, name='logout'),
     # url(r'^logout/$', views.logout, name='logout'), # To be implemented later 
-    # url(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
     url(r'^api-token-auth/', obtain_auth_token),
+    # url(r'^accounts/logout/$', views.logout, {"next_page": '/'}), 
     url(r'^search/$', views.search, name='search'),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
+
