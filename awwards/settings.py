@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'pyuploadcare.dj',
     'crispy_forms',
     'cloudinary',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'star_ratings',
 
 ]
 
