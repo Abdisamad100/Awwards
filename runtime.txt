@@ -1,4 +1,1 @@
-python-3.6
-
-
-git remote set-url origin  https://github.com/Abdisamad100/Awwards.git 
+python-3.6.12
